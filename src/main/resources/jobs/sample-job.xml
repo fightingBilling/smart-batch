@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:file="http://www.springframework.org/schema/integration/file"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:batch="http://www.springframework.org/schema/batch"
+	xsi:schemaLocation="http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- 样例作业 -->
+	<batch:job id="sampleJob">
+		<batch:step id="sampleJob.s1" next="sampleJob.s2">
+			<batch:tasklet ref="sampleTasklet"/>
+		</batch:step>		
+		<batch:step id="sampleJob.s2" parent="_sampleJob.s2">
+			<batch:next on="*" to="sampleJob.s3"/>
+		</batch:step>
+		<batch:step id="sampleJob.s3">
+			<batch:tasklet ref="sampleTasklet2"/>
+		</batch:step>
+		<batch:listeners>
+			<batch:listener ref="customJobExecutionListener"/>
+		</batch:listeners>
+	</batch:job>
+	
+	
+	<batch:step id="_sampleJob.s2">
+		<batch:tasklet>
+			<!-- 每处理1个ITEM做一次事务提交 -->
+			<batch:chunk reader="samplePagingReader" writer="sampleWriter" commit-interval="1" skip-limit="2100000000">
+				<batch:skippable-exception-classes>
+					<batch:include class="java.lang.Throwable"/>
+				</batch:skippable-exception-classes>
+				<batch:listeners>
+					<batch:listener ref="customSkipListener"/>
+					<batch:listener ref="customStepExecutionListener"/>
+				</batch:listeners>	
+			</batch:chunk>
+		</batch:tasklet>	
+	</batch:step>
+	
+	
+	<batch:job id="sampleJob2">
+		<batch:step id="sampleJob2.s1">
+			<batch:tasklet>
+				<!-- 每处理5个ITEM做一次事务提交 -->
+				<batch:chunk reader="samplePagingReader2" writer="sampleWriter2" commit-interval="5"/>
+			</batch:tasklet>
+		</batch:step>
+	</batch:job>
+	
+	<batch:job id="sampleJob3">
+		<batch:step id="sampleJob.s40">
+			<batch:tasklet>
+				<!-- 每处理1个ITEM做一次事务提交 -->
+				<batch:chunk reader="samplePagingReader3" writer="sampleWriter3" commit-interval="1">
+				</batch:chunk>
+			</batch:tasklet>	
+		</batch:step>
+	</batch:job>
+	
+	<!-- sample tasklet -->
+	<bean id="sampleTasklet" class="com.somnus.smart.batch.core.jobs.sample.tasklet.SampleTasklet" scope="step" />
+	
+	<bean id="sampleTasklet2" class="com.somnus.smart.batch.core.jobs.sample.tasklet.SampleTasklet2" scope="step" />
+	
+	<!-- sample paging reader -->
+	<bean id="samplePagingReader" class="com.somnus.smart.batch.core.jobs.sample.reader.SamplePagingReader" scope="step">
+		<property name="pageSize" value="10"/>
+	</bean>
+	
+	<!-- sample  paging reader2 -->
+	<bean id="samplePagingReader2" class="com.somnus.smart.batch.core.jobs.sample.reader.SamplePagingReader2" scope="step">
+		<property name="pageSize" value="10"/>
+	</bean>
+	
+	<!-- sample  paging reader3 -->
+	<bean id="samplePagingReader3" class="com.somnus.smart.batch.core.jobs.sample.reader.SamplePagingReader3" scope="step">
+		<property name="pageSize" value="10"/>
+	</bean>
+	
+	
+	<!-- sample writer -->
+	<bean id="sampleWriter" class="com.somnus.smart.batch.core.jobs.sample.writer.SampleWriter" scope="step"/>
+	
+	<!-- sample writer2 -->
+	<bean id="sampleWriter2" class="com.somnus.smart.batch.core.jobs.sample.writer.SampleWriter2" scope="step"/>
+	
+	<!-- sample writer3 -->
+	<bean id="sampleWriter3" class="com.somnus.smart.batch.core.jobs.sample.writer.SampleWriter3" scope="step"/>
+	
+	
+	<!-- 样例JobLaunchDetails -->
+	<bean id="sampleJobLauncher" parent="parentJobLaunchDetails">
+		<property name="jobDetails">
+			<list>
+				<value>sampleJob:true</value><!-- 任务ID:是否关键任务 -->
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 样例JobLaunchDetails2 -->
+	<bean id="sampleJobLauncher2" parent="parentJobLaunchDetails">
+		<property name="jobDetails">
+			<list>
+				<value>sampleJob2:true</value><!-- 任务ID:是否关键任务 -->
+			</list>
+		</property>
+	</bean>
+	
+	<!-- 样例JobLaunchDetails2 -->
+	<bean id="sampleJobLauncher3" parent="parentJobLaunchDetails">
+		<property name="jobDetails">
+			<list>
+				<value>sampleJob3:true</value><!-- 任务ID:是否关键任务 -->
+			</list>
+		</property>
+	</bean>
+</beans>

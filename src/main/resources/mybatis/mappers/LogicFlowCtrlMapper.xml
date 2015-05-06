@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.somnus.smart.batch.core.joblaunchdetails.support.aspect.dao.LogicFlowCtrlDao">
+	<!-- 当前步骤,获取前STEP状态 -->
+	<select id="getCurrentStepStatus" resultType="string">
+		<![CDATA[
+			select STATUS from BATCH_STEP_EXECUTION where STEP_EXECUTION_ID = 
+			(
+			    select max(STEP_EXECUTION_ID) as STEP_EXECUTION_ID from(
+				      select lag(BSE.STEP_EXECUTION_ID, 1) over (order by BSE.STEP_EXECUTION_ID) as STEP_EXECUTION_ID from 
+				      BATCH_JOB_EXECUTION_PARAMS BJEP
+				      inner join
+				      BATCH_STEP_EXECUTION BSE 
+				      on 
+				      BJEP.JOB_EXECUTION_ID = BSE.JOB_EXECUTION_ID
+				      where 
+				      BJEP.KEY_NAME='date' 
+				      and 
+				      BJEP.STRING_VAL=#{accDate} 
+				      and 
+				      BSE.STEP_NAME=#{stepName} 
+			    )
+			)
+		]]>
+	</select>
+	
+	
+	<!-- 非当前步骤,获取前STEP状态 -->
+	<select id="getLastDayendStepStatus" resultType="string">
+		<![CDATA[
+			select STATUS from BATCH_STEP_EXECUTION where STEP_EXECUTION_ID = 
+			(
+				select max(BSE.STEP_EXECUTION_ID) from 
+				BATCH_JOB_EXECUTION_PARAMS BJEP
+				inner join
+				BATCH_STEP_EXECUTION BSE 
+				on 
+				BJEP.JOB_EXECUTION_ID = BSE.JOB_EXECUTION_ID
+				where 
+				BJEP.KEY_NAME='date' 
+				and 
+				BJEP.STRING_VAL=#{accDate} 
+				and 
+				BSE.STEP_NAME=#{stepName} 
+			)
+		]]>
+	</select>
+	
+	<select id="checkYesterdayDayEnd" resultType="string">
+		<![CDATA[
+			 select max(DATE_CODE) DATE_CODE
+             from TCOR_DAY_DAYLIST
+             where DATE_CODE < #{accDate} order by DATE_CODE
+		]]>
+	</select>
+
+</mapper>
