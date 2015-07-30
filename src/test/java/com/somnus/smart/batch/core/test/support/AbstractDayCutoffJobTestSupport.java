@@ -10,10 +10,10 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.somnus.smart.batch.core.joblaunchdetails.SimpleJobLaunchDetails;
 
 /**
- * @Description 日切测试案列基类
- * @author caobin
- * @date 2013-10-12
- * @version 1.0
+ * @Description: 日切测试案列基类
+ * @author Somnus
+ * @date 2015年7月30日 下午2:10:35 
+ * @version V1.0
  */
 public abstract class AbstractDayCutoffJobTestSupport extends AbstractSpringContextTestSupport {
 

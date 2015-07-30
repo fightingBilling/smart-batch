@@ -12,8 +12,6 @@
 			<list>
 				<ref bean="dayCutoffCronTrigger" />
 				<ref bean="dayEndCronTrigger" />
-				<ref bean="routineAccountDelayCronTrigger" />
-				<ref bean="tranchkCronTrigger" />
 			</list>
 		</property>
 		<property name="quartzProperties">
@@ -30,7 +28,7 @@
 	<bean id="dayCutoffCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="dayCutoffJobDetail" />
 		<!-- 每天晚上23:55触发 -->
-		<property name="cronExpression" value="0 55 23 ? * *" />
+		<property name="cronExpression" value="0 45 10 ? * *" />
 	</bean>
 	
 	
@@ -38,23 +36,9 @@
 	<bean id="dayEndCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
 		<property name="jobDetail" ref="dayEndJobDetail" />		
 		<!-- 每天凌晨1:00触发 -->
-		<property name="cronExpression" value="0 0 1 ? * *" />
+		<property name="cronExpression" value="0 46 10 ? * *" />
 	</bean>
 	
-	
-	<!-- 常规-T+0延时入账Cron Trigger定义  -->
-	<bean id="routineAccountDelayCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<property name="jobDetail" ref="routineAccountDelayJobDetail" />
-		<!-- 每10分钟触发一次 -->
-		<property name="cronExpression" value="0 0/10 * ? * *" />
-	</bean>
-	
-	<!-- 系统间对账，公司对账文件生成 Trigger定义  -->
-	<bean id="tranchkCronTrigger" class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
-		<property name="jobDetail" ref="tranchkJobDetail" />
-		<!-- 每天凌晨2:00触发 -->
-		<property name="cronExpression" value="0 0 2 ? * *" />
-	</bean>
 
 	<!-- ##############################Job Detail Bean############################### -->
 
@@ -64,8 +48,7 @@
 		<property name="targetMethod" value="doDayCutoffJobDetails" />	
 	</bean>
 	
-	<bean id="dayCutoffAction" class="com.ips.bacs.schedule.daycutoff.action.DayCutoffAction"/>
-	
+	<bean id="dayCutoffAction" class="com.somnus.smart.schedule.daycutoff.action.DayCutoffAction"/>
 	
 	<!-- 日终 -->
 	<bean id="dayEndJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
@@ -73,20 +56,6 @@
 		<property name="targetMethod" value="doDayEndJobDetails" />	
 	</bean>
 
-	<bean id="dayEndAction" class="com.ips.bacs.schedule.dayend.action.DayEndAction"/>
+	<bean id="dayEndAction" class="com.somnus.smart.schedule.dayend.action.DayEndAction"/>
 	
-	<!-- 常规-T+0延时入账 -->
-	<bean id="routineAccountDelayJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="routineAccountDelayAction" />
-		<property name="targetMethod" value="doRoutineAccountDelayJobDetails" />	
-	</bean>
-	
-	<!-- 系统对账 -->
-	<bean id="tranchkJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="tranchkAction" />
-		<property name="targetMethod" value="doTranChkJobDetails" />	
-	</bean>
-
-	<bean id="routineAccountDelayAction" class="com.ips.bacs.schedule.routine.action.RoutineAccountDelayAction"/>
-	<bean id="tranchkAction" class="com.ips.bacs.schedule.tranchk.TranChkAction"/>
 </beans>

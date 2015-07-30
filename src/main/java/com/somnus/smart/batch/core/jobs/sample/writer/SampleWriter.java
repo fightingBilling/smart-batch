@@ -12,6 +12,12 @@ import com.somnus.smart.batch.core.jobs.sample.dao.SampleDao;
 import com.somnus.smart.batch.core.jobs.sample.model.TestA;
 import com.somnus.smart.batch.core.jobs.sample.model.TestB;
 
+/**
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午2:05:13 
+ * @version V1.0
+ */
 public class SampleWriter implements ItemWriter<TestA> {
 
 	@Override
@@ -20,8 +26,6 @@ public class SampleWriter implements ItemWriter<TestA> {
 		for(TestA item : items){
 			TestB testB = new TestB();
 			BeanUtils.copyProperties(item, testB);
-			//if(item.getId() == 7)testB.setId(6);
-			//if(item.getId() == 77)testB.setId(76);
 			sampleDao.exportToTestB(testB);
 		}		
 	}

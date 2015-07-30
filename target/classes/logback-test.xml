@@ -9,12 +9,11 @@
 		</layout>
 	</appender>
 	
-
-	<logger name="com.ips.bacs.batch" level="trace" additivity="false">
+	<logger name="com.somnus.smart.batch" level="trace" additivity="false">
 	 	<appender-ref ref="ROOT_CONSOLE"/>
 	</logger>
 	
-	<logger name="com.ips.bacs.schedule" level="trace" additivity="false">
+	<logger name="com.somnus.smart.schedule" level="trace" additivity="false">
 	 	<appender-ref ref="ROOT_CONSOLE"/>
 	</logger>
 	
@@ -29,7 +28,6 @@
 	<logger name="org.mybatis.spring.transaction" level="trace" additivity="false">
 		<appender-ref ref="ROOT_CONSOLE"/>
 	</logger>
-	
 	
 	<root level="info">
 		<appender-ref ref="ROOT_CONSOLE"/>

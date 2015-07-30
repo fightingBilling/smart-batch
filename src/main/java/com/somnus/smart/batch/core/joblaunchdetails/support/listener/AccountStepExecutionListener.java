@@ -9,10 +9,10 @@ import org.springframework.batch.core.StepExecutionListener;
 import com.somnus.smart.batch.core.joblaunchdetails.support.JobStepContext;
 
 /**
- * @Description STEP监听器
- * @author caobin
- * @date 2013-10-11
- * @version 1.0
+ * @Description: STEP监听器
+ * @author Somnus
+ * @date 2015年7月30日 下午1:50:22 
+ * @version V1.0
  */
 public class AccountStepExecutionListener implements StepExecutionListener {
 
@@ -31,6 +31,5 @@ public class AccountStepExecutionListener implements StepExecutionListener {
 		JobStepContext.clearJobException();
 		return stepExecution.getExitStatus();
 	}
-	
 
 }

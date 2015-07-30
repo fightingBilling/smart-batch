@@ -6,9 +6,11 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import com.thoughtworks.xstream.XStream;
 
+@Component
 public class MessageBuilder {
     @Value("${batch.sms.sender}")
     private String sender;
@@ -30,9 +32,6 @@ public class MessageBuilder {
 
     @Value("${batch.sms.paramName}")
     private String paramName;
-    
-    
-    
     
     public String buildSignleMessage(String templateId,String accDate) {
         String messageXml = null;

@@ -16,12 +16,11 @@ import org.springframework.util.ReflectionUtils;
 
 import com.somnus.smart.batch.core.joblaunchdetails.support.aspect.dao.LogicFlowCtrlDao;
 
-
 /**
- * @Description 抽象切面基类
- * @author caobin
- * @date 2014-4-10
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:49:09 
+ * @version V1.0
  */
 public abstract class AbstractBaseAspect{
 
@@ -30,7 +29,6 @@ public abstract class AbstractBaseAspect{
 	 * @param objProceedingJoinPoint
 	 * @param clazz
 	 * @return
-	 * @author caobin
 	 */
 	protected<C> C getProxiedObject(final ProceedingJoinPoint objProceedingJoinPoint, Class<C> clazz){
 		return clazz.cast(objProceedingJoinPoint.getThis());
@@ -41,7 +39,6 @@ public abstract class AbstractBaseAspect{
 	 * @Description 获取步骤执行上下文
 	 * @param objProceedingJoinPoint
 	 * @return
-	 * @author caobin
 	 */
 	public StepExecution getStepExecution(final ProceedingJoinPoint objProceedingJoinPoint){
 

@@ -8,6 +8,12 @@ import org.springframework.batch.item.ItemWriter;
 
 import com.somnus.smart.batch.core.jobs.sample.model.TestC;
 
+/**
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午2:05:25 
+ * @version V1.0
+ */
 public class SampleWriter2 implements ItemWriter<TestC> {
 
 	@Override

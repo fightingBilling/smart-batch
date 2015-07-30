@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd"> 
-<!-- 指定到Dao类 -->    
 <mapper namespace="com.somnus.smart.batch.core.jobs.sample.dao.SampleDao">
+
 	<resultMap id="TestAResultMap" type="com.somnus.smart.batch.core.jobs.sample.model.TestA">
 		<id column="ID" property="id"/>
 		<result column="FIELD1" property="f1"/>

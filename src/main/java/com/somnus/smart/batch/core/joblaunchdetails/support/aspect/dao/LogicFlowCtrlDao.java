@@ -5,10 +5,10 @@ import org.apache.ibatis.annotations.Param;
 import com.somnus.smart.batch.support.mybatis.MyBatisRepository;
 
 /**
- * @Description 用于逻辑流程控制DAO(主要针对STEP的控制)
- * @author caobin
- * @date 2014-4-13
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:48:58 
+ * @version V1.0
  */
 @MyBatisRepository
 public interface LogicFlowCtrlDao {
@@ -18,7 +18,6 @@ public interface LogicFlowCtrlDao {
 	 * @param accDate 账务日期
 	 * @param stepName 步骤名称
 	 * @return
-	 * @author caobin
 	 */
 	String getCurrentStepStatus(@Param("accDate") String accDate, @Param("stepName") String stepName);
 	
@@ -28,7 +27,6 @@ public interface LogicFlowCtrlDao {
 	 * @param accDate 账务日期
 	 * @param stepName 步骤名称
 	 * @return
-	 * @author caobin
 	 */
 	String getLastDayendStepStatus(@Param("accDate") String accDate, @Param("stepName") String stepName);
 	
@@ -37,7 +35,6 @@ public interface LogicFlowCtrlDao {
 	 * @Description 判断昨日日终状态
 	 * @param accDate
 	 * @return
-	 * @author caobin
 	 */
 	String checkYesterdayDayEnd(@Param("accDate") String accDate);
 }

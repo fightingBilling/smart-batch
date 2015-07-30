@@ -16,7 +16,7 @@
 			</TimeBasedFileNamingAndTriggeringPolicy>
 		</rollingPolicy>
 		<encoder>
-			<pattern> ${pattern}</pattern>
+			<pattern>${pattern}</pattern>
 		</encoder>
 	</appender>
 
@@ -38,11 +38,11 @@
 	</appender>
 	
 	
-	<logger name="com.ips.bacs.batch" level="debug" additivity="false">
+	<logger name="com.somnus.smart.batch" level="debug" additivity="false">
 		<appender-ref ref="batch" />
 	</logger>
 	
-	<logger name="com.ips.bacs.schedule" level="trace" additivity="false">
+	<logger name="com.somnus.smart.schedule" level="trace" additivity="false">
 	 	<appender-ref ref="batch"/>
 	</logger>
 	

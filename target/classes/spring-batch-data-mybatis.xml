@@ -12,7 +12,6 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa.xsd 
 		http://www.springframework.org/schema/aop   http://www.springframework.org/schema/aop/spring-aop.xsd">
 
-
 	<description>MyBatis默认配置</description>
 	
 	<!-- ************************************************************************************************* -->

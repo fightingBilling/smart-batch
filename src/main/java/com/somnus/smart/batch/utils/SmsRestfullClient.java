@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import com.somnus.smart.batch.support.sms.MessageBuilder;
 import com.sun.jersey.api.client.Client;
@@ -14,8 +15,15 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 
+/**
+ * @Description: 发送短信
+ * @author Somnus
+ * @date 2015年7月30日 下午2:08:58 
+ * @version V1.0
+ */
+@Component
 public class SmsRestfullClient {
-    protected static Logger     log             = LoggerFactory.getLogger(SmsRestfullClient.class);
+    protected static Logger     log = LoggerFactory.getLogger(SmsRestfullClient.class);
     @Autowired
     private MessageBuilder      messageBuilder;
     @Value("${batch.sms.baseUrl}")
@@ -35,6 +43,7 @@ public class SmsRestfullClient {
         sendBatchMessage(dayEndTemplateId, accDate);
     }
 
+    @SuppressWarnings("unused")
     private void sendMessage(String templateId, String accDate) {
         String testXml = "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>";
         String message = messageBuilder.buildSignleMessage(templateId, accDate);
@@ -81,7 +90,6 @@ public class SmsRestfullClient {
      * @return
      */
     private String getResponse(WebResource resource, String str) {
-        return resource.accept(MediaType.APPLICATION_XML).type(MediaType.APPLICATION_XML)
-            .post(String.class, str);
+        return resource.accept(MediaType.APPLICATION_XML).type(MediaType.APPLICATION_XML).post(String.class, str);
     }
 }

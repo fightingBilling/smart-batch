@@ -10,14 +10,14 @@ import org.springframework.beans.factory.annotation.Value;
 import com.github.miemiedev.mybatis.paginator.domain.PageBounds;
 import com.github.miemiedev.mybatis.paginator.domain.PageList;
 import com.somnus.smart.batch.core.joblaunchdetails.support.reader.CustomPagingItemReader;
-import com.somnus.smart.batch.core.jobs.sample.dao.PbcsSampleDao;
+import com.somnus.smart.batch.core.jobs.sample.dao.SampleDao;
 import com.somnus.smart.batch.core.jobs.sample.model.TestC;
 
 /**
- * @Description 分页reader for pbcs
- * @author caobin
- * @date 2013-10-14
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午2:04:00 
+ * @version V1.0
  */
 public class SamplePagingReader2 extends CustomPagingItemReader<List<TestC>> {
 
@@ -25,13 +25,13 @@ public class SamplePagingReader2 extends CustomPagingItemReader<List<TestC>> {
 	public List<TestC> execute() {
 		log.info("===========================================> {}", new Object[]{pDate});
 		PageBounds pageBounds = new PageBounds(this.getPage(), this.getPageSize());
-		PageList<TestC> lstTestC = pbcsSampleDao.queryPaged(pageBounds);
+		PageList<TestC> lstTestC = sampleDao.queryPagedByC(pageBounds);
 		log.info(">>>> Sample paging reader: count = {}", new Object[]{lstTestC.getPaginator().getTotalCount()});
 		return lstTestC;
 	}
 	
 	@Autowired
-	private PbcsSampleDao pbcsSampleDao;
+	private SampleDao sampleDao;
 	
 	@Value("#{jobParameters['date']}")
 	private String pDate;

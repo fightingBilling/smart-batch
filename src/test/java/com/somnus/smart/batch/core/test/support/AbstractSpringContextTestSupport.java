@@ -10,12 +10,11 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.AbstractJUnit4SpringContextTests;
 
-
 /**
- * @Description 基于spring-test的后台单元测试基类
- * @author caobin
- * @date 2012-11-19
- * @version 1.0
+ * @Description: 基于spring-test的后台单元测试基类
+ * @author Somnus
+ * @date 2015年7月30日 下午2:11:39 
+ * @version V1.0
  */
 @ContextConfiguration(locations = {
 		"classpath:/spring-env.xml",

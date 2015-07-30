@@ -19,10 +19,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @Description FTP客户端
- * @author caobin
- * @date 2013-7-9
- * @version 1.0
+ * @Description: FTP客户端
+ * @author Somnus
+ * @date 2015年7月30日 下午2:07:00 
+ * @version V1.0
  */
 public class FTPClientHelper{
 	
@@ -44,7 +44,6 @@ public class FTPClientHelper{
 	
 	/**
 	 * @Description 连接并登录到FTP
-	 * @author caobin
 	 */
 	public void login(){
 		client = new FTPClient();
@@ -80,7 +79,6 @@ public class FTPClientHelper{
 	 * @Description 判断文件是否存在
 	 * @param remoteFile 文件
 	 * @return
-	 * @author caobin
 	 */
 	public boolean isRemoteFileExists(String remoteFile){
 		
@@ -108,7 +106,6 @@ public class FTPClientHelper{
 	 * @Description 判断目录是否存在
 	 * @param remoteDirPath
 	 * @return
-	 * @author caobin
 	 */
 	public boolean isRemoteDirExists(String remoteDirPath){
 		try{

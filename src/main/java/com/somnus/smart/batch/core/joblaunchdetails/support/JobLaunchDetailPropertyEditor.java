@@ -4,19 +4,15 @@ import java.beans.PropertyEditorSupport;
 
 import org.apache.commons.lang.StringUtils;
 
-
-
 /**
- * @Description 将<jobName>:<isCritical>字符串转化为<code>JobLaunchDetail</code>
- * @author caobin
- * @date 2013-10-8
- * @version 1.0
+ * @Description: 将<jobName>:<isCritical>字符串转化为<code>JobLaunchDetail</code>
+ * @author Somnus
+ * @date 2015年7月30日 下午1:56:05 
+ * @version V1.0
  */
-public class JobLaunchDetailPropertyEditor extends PropertyEditorSupport 
-{
+public class JobLaunchDetailPropertyEditor extends PropertyEditorSupport {
     @Override  
-    public void setAsText(String text) throws IllegalArgumentException 
-    { 
+    public void setAsText(String text) throws IllegalArgumentException { 
     	if(StringUtils.isBlank(text)){
     		throw new IllegalStateException("Converting String to JobLaunchDetail: string is blank.");
     	}

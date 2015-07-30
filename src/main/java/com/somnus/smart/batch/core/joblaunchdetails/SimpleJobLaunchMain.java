@@ -10,17 +10,13 @@ import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
-
-
 
 /**
- * @Description Main Launcher
- * @author caobin
- * @date 2013-10-9
- * @version 1.0
+ * @Description: Main Launcher
+ * @author Somnus
+ * @date 2015年7月30日 下午1:59:07 
+ * @version V1.0
  */
 public class SimpleJobLaunchMain {
 
@@ -28,7 +24,6 @@ public class SimpleJobLaunchMain {
 	 * @Description
 	 * @param args
 	 * @throws IOException
-	 * @author caobin
 	 * @throws ParseException 
 	 */
 	public static void main(String[] args)  {
@@ -97,7 +92,6 @@ public class SimpleJobLaunchMain {
 	 * @Description 
 	 * @param profile
 	 * @return
-	 * @author caobin
 	 */
 	private static ClassPathXmlApplicationContext getContext(String profile){
 		if(StringUtils.isBlank(profile)){

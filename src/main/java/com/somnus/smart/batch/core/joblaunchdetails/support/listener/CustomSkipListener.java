@@ -12,10 +12,10 @@ import org.springframework.batch.core.SkipListener;
 import com.somnus.smart.batch.core.joblaunchdetails.support.JobContext;
 
 /**
- * @Description 
- * @author caobin
- * @date 2013-12-6
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:51:08 
+ * @version V1.0
  */
 public class CustomSkipListener implements SkipListener<Object, Object> {
 
@@ -47,6 +47,5 @@ public class CustomSkipListener implements SkipListener<Object, Object> {
 		//更新当前线程异常变量
 		JobContext.getSkipException().set(t);
 	}
-	
 	
 }

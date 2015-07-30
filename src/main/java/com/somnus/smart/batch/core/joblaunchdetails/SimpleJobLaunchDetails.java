@@ -30,17 +30,16 @@ import com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchDetail;
 import com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchPolicy;
 
 /**
- * @Description 简易JOB加载器
- * @author caobin
- * @date 2013-9-23
- * @version 1.0
+ * @Description: 简易JOB加载器
+ * @author Somnus
+ * @date 2015年7月30日 下午1:58:28 
+ * @version V1.0
  */
 public class SimpleJobLaunchDetails implements ApplicationContextAware, InitializingBean {
 	
 	/**
 	 * @Description 执行作业
 	 * @param jobParams 作业参数
-	 * @author caobin
 	 */
 	public void executeJobs(Map<String, String> jobParams){
 		try{
@@ -78,23 +77,6 @@ public class SimpleJobLaunchDetails implements ApplicationContextAware, Initiali
 						jobParametersBuilder.addString(jobParam.getKey(), jobParam.getValue());
 					}
 					jobParameters = jobParametersBuilder.toJobParameters();
-
-					
-					//判断相同JobParameter的Job是否已经成功完成过，完成过则不处理
-					//JobExecution lastJobExecution = jobRepository.getLastJobExecution(jobDetail.getJobName(), jobParameters);
-					/*
-					if(lastJobExecution != null && lastJobExecution.getStatus() == BatchStatus.COMPLETED){
-						log.info(">>>> Job named [{}] with parameters [{}] has been executed successfully.", 
-								new Object[]{jobDetail.getJobName(), jobParameters.toString()});
-						continue;
-					}*/
-					
-					//判断相同JobParameter的Job是否存在过，如果该Job状态失败，但是为不可restart的Job，那么该类Job也被忽略
-					/*if(lastJobExecution != null && lastJobExecution.getStatus() != BatchStatus.COMPLETED && !currentJob.isRestartable()){
-						log.info(">>>>> Job(unrestartable) named [{}] with parameter [{}] has been executed unsuccessfully.", 
-								new Object[]{jobDetail.getJobName(), jobParameters.toString()});
-						continue;
-					}*/
 					
 					try {
 						jobExecution = jobLauncher.run(currentJob, jobParameters);
@@ -142,7 +124,6 @@ public class SimpleJobLaunchDetails implements ApplicationContextAware, Initiali
 	 * @Description 通过Job名称获取对应的账务日期(分日切/日终)
 	 * @param jobDetail
 	 * @return
-	 * @author caobin
 	 */
 	private String getAccountDate(JobLaunchDetail jobDetail){
 		JdbcTemplate jdbcTemplate = context.getBean(JdbcTemplate.class);
@@ -162,7 +143,6 @@ public class SimpleJobLaunchDetails implements ApplicationContextAware, Initiali
 	 * @Description 通过Job的bean name获取Job
 	 * @param jobName job的bean name
 	 * @return
-	 * @author caobin
 	 */
 	protected Job fetchJob(String jobName) {
 		Object obj = context.getBean(jobName);

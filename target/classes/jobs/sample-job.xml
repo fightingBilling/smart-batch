@@ -8,7 +8,9 @@
 		http://www.springframework.org/schema/batch http://www.springframework.org/schema/batch/spring-batch-2.2.xsd
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<!-- 样例作业 -->
+	<!-- ************************************************************ -->
+    <!-- *                     样例作业                                                                                                             * -->
+    <!-- ************************************************************ -->
 	<batch:job id="sampleJob">
 		<batch:step id="sampleJob.s1" next="sampleJob.s2">
 			<batch:tasklet ref="sampleTasklet"/>
@@ -24,6 +26,10 @@
 		</batch:listeners>
 	</batch:job>
 	
+	<!-- sample tasklet -->
+    <bean id="sampleTasklet" class="com.somnus.smart.batch.core.jobs.sample.tasklet.SampleTasklet" scope="step" />
+    
+    <bean id="sampleTasklet2" class="com.somnus.smart.batch.core.jobs.sample.tasklet.SampleTasklet2" scope="step" />
 	
 	<batch:step id="_sampleJob.s2">
 		<batch:tasklet>
@@ -40,7 +46,9 @@
 		</batch:tasklet>	
 	</batch:step>
 	
-	
+	<!-- ************************************************************ -->
+    <!-- *                     样例作业2                               * -->
+    <!-- ************************************************************ -->
 	<batch:job id="sampleJob2">
 		<batch:step id="sampleJob2.s1">
 			<batch:tasklet>
@@ -50,8 +58,11 @@
 		</batch:step>
 	</batch:job>
 	
+	<!-- ************************************************************ -->
+    <!-- *                     样例作业3                               * -->
+    <!-- ************************************************************ -->
 	<batch:job id="sampleJob3">
-		<batch:step id="sampleJob.s40">
+		<batch:step id="sampleJob3.s1">
 			<batch:tasklet>
 				<!-- 每处理1个ITEM做一次事务提交 -->
 				<batch:chunk reader="samplePagingReader3" writer="sampleWriter3" commit-interval="1">
@@ -59,11 +70,6 @@
 			</batch:tasklet>	
 		</batch:step>
 	</batch:job>
-	
-	<!-- sample tasklet -->
-	<bean id="sampleTasklet" class="com.somnus.smart.batch.core.jobs.sample.tasklet.SampleTasklet" scope="step" />
-	
-	<bean id="sampleTasklet2" class="com.somnus.smart.batch.core.jobs.sample.tasklet.SampleTasklet2" scope="step" />
 	
 	<!-- sample paging reader -->
 	<bean id="samplePagingReader" class="com.somnus.smart.batch.core.jobs.sample.reader.SamplePagingReader" scope="step">
@@ -109,7 +115,7 @@
 		</property>
 	</bean>
 	
-	<!-- 样例JobLaunchDetails2 -->
+	<!-- 样例JobLaunchDetails3 -->
 	<bean id="sampleJobLauncher3" parent="parentJobLaunchDetails">
 		<property name="jobDetails">
 			<list>

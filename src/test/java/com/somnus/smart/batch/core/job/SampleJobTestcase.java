@@ -1,8 +1,6 @@
 package com.somnus.smart.batch.core.job;
 
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.UUID;
 
 import javax.annotation.Resource;
@@ -18,10 +16,10 @@ import com.somnus.smart.batch.core.joblaunchdetails.SimpleJobLaunchDetails;
 import com.somnus.smart.batch.core.test.support.AbstractDayEndJobTestSupport;
 
 /**
- * @Description 样例作业测试案例
- * @author caobin
- * @date 2013-10-8
- * @version 1.0
+ * @Description: 样例作业测试案例
+ * @author Somnus
+ * @date 2015年7月30日 下午2:10:09 
+ * @version V1.0
  */
 public class SampleJobTestcase extends AbstractDayEndJobTestSupport {
 

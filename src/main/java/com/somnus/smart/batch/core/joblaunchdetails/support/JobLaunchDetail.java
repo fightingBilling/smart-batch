@@ -4,10 +4,10 @@ import org.apache.commons.lang.builder.ReflectionToStringBuilder;
 import org.apache.commons.lang.builder.ToStringStyle;
 
 /**
- * @Description Job加载细节
- * @author caobin
- * @date 2013-9-23
- * @version 1.0
+ * @Description: Job加载细节
+ * @author Somnus
+ * @date 2015年7月30日 下午1:55:41 
+ * @version V1.0
  */
 public class JobLaunchDetail {
 	
@@ -49,9 +49,6 @@ public class JobLaunchDetail {
 		this.critical = critical;
 	}
 
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString() {
 		return ReflectionToStringBuilder.toString(this, ToStringStyle.MULTI_LINE_STYLE);

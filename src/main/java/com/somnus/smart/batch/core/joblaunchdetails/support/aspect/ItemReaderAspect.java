@@ -4,13 +4,15 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.batch.core.BatchStatus;
+import org.springframework.stereotype.Component;
 
 /**
- * @Description ItemReader aspect
- * @author caobin
- * @date 2014-4-10
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:49:20 
+ * @version V1.0
  */
+@Component
 @Aspect
 public class ItemReaderAspect extends AbstractBaseAspect{
 	@Around("execution(* org.springframework.batch.item.ItemReader.read(..))")

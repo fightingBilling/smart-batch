@@ -12,11 +12,16 @@ import org.springframework.beans.factory.annotation.Value;
 import com.somnus.smart.batch.core.jobs.sample.dao.SampleDao;
 import com.somnus.smart.batch.core.jobs.sample.model.TestA;
 
+/**
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午2:04:45 
+ * @version V1.0
+ */
 public class SampleTasklet implements Tasklet {
 	
 	@Autowired
 	private SampleDao sampleDao;
-	
 	
 	@Override
 	public RepeatStatus execute(StepContribution stepcontribution,
@@ -41,7 +46,6 @@ public class SampleTasklet implements Tasklet {
 			testA.setF2("F2_" + i);
 			sampleDao.initTestA(testA);
 		}
-			
 		
 		log.info(">>>> Table TestA was initialized.");
 		

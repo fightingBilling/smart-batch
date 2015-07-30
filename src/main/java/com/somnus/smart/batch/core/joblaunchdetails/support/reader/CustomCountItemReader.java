@@ -14,10 +14,10 @@ import org.springframework.batch.item.UnexpectedInputException;
 import org.springframework.beans.factory.InitializingBean;
 
 /**
- * @Description SQL恒定计数的ITEMREADER
- * @author caobin
- * @date 2014-3-3
- * @version 1.0
+ * @Description: SQL恒定计数的ITEMREADER
+ * @author Somnus
+ * @date 2015年7月30日 下午1:53:34 
+ * @version V1.0
  */
 public abstract class CustomCountItemReader<T> implements ItemReader<T>, CustomReader<T>, InitializingBean {
 	
@@ -69,12 +69,6 @@ public abstract class CustomCountItemReader<T> implements ItemReader<T>, CustomR
 		return null;
 	}
 	
-	
-	
-	
-	/* (non-Javadoc)
-	 * @see org.springframework.beans.factory.InitializingBean#afterPropertiesSet()
-	 */
 	@Override
 	public void afterPropertiesSet() throws Exception {
 		if(pageSize <= 0){

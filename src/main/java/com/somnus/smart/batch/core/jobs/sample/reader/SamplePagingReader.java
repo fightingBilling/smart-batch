@@ -14,10 +14,10 @@ import com.somnus.smart.batch.core.jobs.sample.dao.SampleDao;
 import com.somnus.smart.batch.core.jobs.sample.model.TestA;
 
 /**
- * @Description 分页reader
- * @author caobin
- * @date 2013-9-23
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午2:03:32 
+ * @version V1.0
  */
 public class SamplePagingReader extends CustomPagingItemReader<List<TestA>> {
 

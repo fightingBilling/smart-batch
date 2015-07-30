@@ -7,12 +7,17 @@ import org.springframework.batch.core.JobExecutionListener;
 
 import com.somnus.smart.batch.core.joblaunchdetails.support.JobContext;
 
+/**
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:50:56 
+ * @version V1.0
+ */
 public class CustomJobExecutionListener implements JobExecutionListener {
 
 	@Override
 	public void beforeJob(JobExecution jobExecution) {
 		// TODO Auto-generated method stub
-
 	}
 
 	@Override
@@ -25,4 +30,5 @@ public class CustomJobExecutionListener implements JobExecutionListener {
 		}
 		JobContext.clearSkipException();
 	}
+	
 }

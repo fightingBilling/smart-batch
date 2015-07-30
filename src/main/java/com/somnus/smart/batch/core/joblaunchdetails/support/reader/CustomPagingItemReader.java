@@ -4,13 +4,12 @@ import java.util.Collection;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
- * @Description 分页ItemReader
- * @author caobin
- * @date 2013-9-23
- * @version 1.0
+ * @Description: 分页ItemReader
+ * @author Somnus
+ * @date 2015年7月30日 下午1:54:04 
+ * @version V1.0
  */
 public abstract class CustomPagingItemReader<T> extends AbstractOraclePagingItemReader<T> implements CustomReader<T> {
-
 	
 	/**
 	 * @Description logic code for reader part

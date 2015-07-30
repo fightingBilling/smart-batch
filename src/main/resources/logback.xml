@@ -38,7 +38,7 @@
 	</appender>
 	
 	
-	<logger name="com.ips.bacs.batch" level="debug" additivity="false">
+	<logger name="com.somnus.smart.batch" level="debug" additivity="false">
 		<appender-ref ref="batch" />
 	</logger>
 	

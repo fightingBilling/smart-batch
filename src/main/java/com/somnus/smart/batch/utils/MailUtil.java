@@ -7,9 +7,17 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Component;
 
+/**
+ * @Description: 发送邮件
+ * @author Somnus
+ * @date 2015年7月30日 下午2:07:21 
+ * @version V1.0
+ */
+@Component
 public class MailUtil {
-    protected static Logger     log                     = LoggerFactory.getLogger(MailUtil.class);
+    protected transient Logger  log = LoggerFactory.getLogger(getClass());
     @Autowired
     private MailSender          mailSender;
 
@@ -34,8 +42,7 @@ public class MailUtil {
     /**
      * 日终成功发送邮件
      */
-    public void sendDayEndSuccessMail( String from, String[] to,
-                                      String cc, String accDate) {
+    public void sendDayEndSuccessMail(String from, String[] to,String cc, String accDate) {
         sendMail(DAY_END_SUCCESS_SUBJECT, "", from, to, cc, accDate);
     }
 

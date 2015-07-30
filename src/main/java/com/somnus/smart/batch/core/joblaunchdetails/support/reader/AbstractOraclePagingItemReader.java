@@ -11,15 +11,21 @@ import org.springframework.beans.factory.InitializingBean;
 import org.springframework.util.Assert;
 import org.springframework.util.ClassUtils;
 
+/**
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:53:17 
+ * @version V1.0
+ */
 public abstract class AbstractOraclePagingItemReader<T> extends
 		AbstractItemCountingItemStreamItemReader<T> implements InitializingBean{
 
-	 protected StepExecution stepExecution;
+    protected StepExecution stepExecution;
 
-	 @BeforeStep
-	 public void saveStepExecution(StepExecution stepExecution) {
-	     this.stepExecution = stepExecution;
-	 }
+    @BeforeStep
+    public void saveStepExecution(StepExecution stepExecution) {
+        this.stepExecution = stepExecution;
+    }
 	
 	protected Log logger = LogFactory.getLog(getClass());
 

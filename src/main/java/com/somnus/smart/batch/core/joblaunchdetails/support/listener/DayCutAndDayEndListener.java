@@ -13,9 +13,14 @@ import org.springframework.beans.factory.annotation.Value;
 import com.somnus.smart.batch.utils.MailUtil;
 import com.somnus.smart.batch.utils.SmsRestfullClient;
 
+/**
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:51:37 
+ * @version V1.0
+ */
 public class DayCutAndDayEndListener implements JobExecutionListener {
-    protected static Logger   log                  = LoggerFactory
-                                                       .getLogger(AccountJobExecutionListener.class);
+    protected transient Logger log = LoggerFactory.getLogger(getClass());
     @Value("${mail.username}")
     private String            from;
     @Value("${mail.to}")
@@ -114,4 +119,5 @@ public class DayCutAndDayEndListener implements JobExecutionListener {
             }
         }
     }
+    
 }

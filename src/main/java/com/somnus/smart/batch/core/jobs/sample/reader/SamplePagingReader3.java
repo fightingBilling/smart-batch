@@ -9,10 +9,10 @@ import com.somnus.smart.batch.core.jobs.sample.dao.SampleDao;
 import com.somnus.smart.batch.core.jobs.sample.model.TestC;
 
 /**
- * @Description 
- * @author caobin
- * @date 2014-3-4
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午2:04:15 
+ * @version V1.0
  */
 public class SamplePagingReader3 extends CustomCountItemReader<List<TestC>> {
 

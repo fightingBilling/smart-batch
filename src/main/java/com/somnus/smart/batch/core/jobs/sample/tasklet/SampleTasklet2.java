@@ -8,6 +8,12 @@ import org.springframework.batch.core.step.tasklet.Tasklet;
 import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Value;
 
+/**
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午2:04:56 
+ * @version V1.0
+ */
 public class SampleTasklet2 implements Tasklet {
 
 	@Override

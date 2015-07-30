@@ -1,10 +1,10 @@
 package com.somnus.smart.batch.core.joblaunchdetails.support;
 
 /**
- * @Description  任务上下文定义
- * @author caobin
- * @date 2013-12-6
- * @version 1.0
+ * @Description: 任务上下文定义
+ * @author Somnus
+ * @date 2015年7月30日 下午1:55:21 
+ * @version V1.0
  */
 public class JobContext {
 
@@ -27,7 +27,6 @@ public class JobContext {
 	
 	/**
 	 * @Description 
-	 * @author caobin
 	 */
 	public static void clearSkipException(){
 		SKIP_EXCEPTION.remove();

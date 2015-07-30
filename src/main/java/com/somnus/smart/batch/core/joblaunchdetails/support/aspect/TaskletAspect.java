@@ -4,13 +4,15 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.batch.core.BatchStatus;
+import org.springframework.stereotype.Component;
 
 /**
- * @Description Tasklet Aspect
- * @author caobin
- * @date 2014-4-10
- * @version 1.0
+ * @Description: TODO
+ * @author Somnus
+ * @date 2015年7月30日 下午1:49:32 
+ * @version V1.0
  */
+@Component
 @Aspect
 public class TaskletAspect extends AbstractBaseAspect{
 
@@ -40,7 +42,5 @@ public class TaskletAspect extends AbstractBaseAspect{
 	public static void main(String[] args) {
 		System.out.println(BatchStatus.COMPLETED.toString());
 	}
-	
-	
 	
 }
