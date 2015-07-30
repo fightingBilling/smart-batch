@@ -34,6 +34,11 @@ public class SampleJobTestcase extends AbstractDayEndJobTestSupport {
 	}
 	
 	@Test
+    public void doSampleJob3(){
+        this.launchJobDetail(sampleJobLauncher3);
+    }
+	
+	@Test
 	public void initTestC() throws SQLException{
 		txTemplate.execute(new TransactionCallback<Object>() {
 
@@ -45,13 +50,8 @@ public class SampleJobTestcase extends AbstractDayEndJobTestSupport {
 				}
 				return null;
 			}
+			
 		});
-	}
-	
-	
-	@Test
-	public void doSampleJob3(){
-		this.launchJobDetail(sampleJobLauncher3);
 	}
 	
 	@Resource

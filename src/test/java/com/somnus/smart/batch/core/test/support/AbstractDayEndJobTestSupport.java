@@ -21,21 +21,13 @@ public abstract class AbstractDayEndJobTestSupport extends AbstractSpringContext
 		Map<String, String> params = new HashMap<String, String>();
 		params.put("identity", UUID.randomUUID().toString());
 		params.put("mode", "manual");
-		params.put("date", getAccountDate());
+		String datevalue = jdbcTemplate.queryForObject(GET_ACCOUNT_DATE_SQL, String.class);
+		params.put("date", datevalue);
 		jobLauncher.executeJobs(params);
-	}
-	
-	/**
-	 * @Description 获取账务日期
-	 * @return
-	 * @author caobin
-	 */
-	private String getAccountDate(){
-		return jdbcTemplate.queryForObject(GET_ACCOUNT_DATE_SQL, String.class);
 	}
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
-	private final static String GET_ACCOUNT_DATE_SQL = "select ACC_DATE from TCOR_DAY_BATCH";
+	private static final String GET_ACCOUNT_DATE_SQL = "select ACC_DATE from TCOR_DAY_BATCH";
 }

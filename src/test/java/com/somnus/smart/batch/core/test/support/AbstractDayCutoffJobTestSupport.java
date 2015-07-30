@@ -26,7 +26,6 @@ public abstract class AbstractDayCutoffJobTestSupport extends AbstractSpringCont
 		
 		params.put("date", dateValue);
 		
-		
 		jobLauncher.executeJobs(params);
 	}
 
@@ -34,5 +33,5 @@ public abstract class AbstractDayCutoffJobTestSupport extends AbstractSpringCont
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	private final static String GET_ACCOUNT_DATE_SQL = "select CORE_DATE from TCOR_DAY_SYSTEM";
+	private static final String GET_ACCOUNT_DATE_SQL = "select CORE_DATE from TCOR_DAY_SYSTEM";
 }

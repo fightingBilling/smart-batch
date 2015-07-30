@@ -41,13 +41,11 @@
 	
 
 	<!-- ##############################Job Detail Bean############################### -->
-
 	<!-- 日切 -->
 	<bean id="dayCutoffJobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="dayCutoffAction" />
 		<property name="targetMethod" value="doDayCutoffJobDetails" />	
 	</bean>
-	
 	<bean id="dayCutoffAction" class="com.somnus.smart.schedule.daycutoff.action.DayCutoffAction"/>
 	
 	<!-- 日终 -->
@@ -55,7 +53,6 @@
 		<property name="targetObject" ref="dayEndAction" />
 		<property name="targetMethod" value="doDayEndJobDetails" />	
 	</bean>
-
 	<bean id="dayEndAction" class="com.somnus.smart.schedule.dayend.action.DayEndAction"/>
 	
 </beans>
