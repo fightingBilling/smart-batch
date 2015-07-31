@@ -20,7 +20,7 @@ public class SampleTasklet2 implements Tasklet {
 	public RepeatStatus execute(StepContribution stepcontribution,
 			ChunkContext chunkcontext) throws Exception {
 
-		log.info(">>>> Executing step3.");
+		log.info(">>>> Executing step3.>>>> JOB PARAMS: date-{}", new Object[]{pDate});
 		
 		return RepeatStatus.FINISHED;
 	}
