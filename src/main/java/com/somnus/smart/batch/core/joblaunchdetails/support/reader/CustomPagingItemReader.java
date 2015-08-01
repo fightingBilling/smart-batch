@@ -14,7 +14,6 @@ public abstract class CustomPagingItemReader<T> extends AbstractOraclePagingItem
 	/**
 	 * @Description logic code for reader part
 	 * @return
-	 * @author caobin
 	 */
 	public abstract T execute();
 	

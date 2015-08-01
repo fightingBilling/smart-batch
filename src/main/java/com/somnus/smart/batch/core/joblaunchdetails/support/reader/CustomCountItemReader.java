@@ -39,14 +39,12 @@ public abstract class CustomCountItemReader<T> implements ItemReader<T>, CustomR
 	/**
 	 * @Description 获取初始化总数
 	 * @return
-	 * @author caobin
 	 */
 	public abstract int getInitCount();
 	
 	/**
 	 * @Description 执行方法
 	 * @return
-	 * @author caobin
 	 */
 	public abstract T execute();
 	
