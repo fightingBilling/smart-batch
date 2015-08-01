@@ -52,6 +52,13 @@
 		<result column="STATUS" property="status"/>
 	</resultMap>
 	
+	<!-- 分页查询记录 -->
+	<select id="queryPagedByC" resultMap="TestAResultMap">
+		<![CDATA[
+			SELECT * FROM TestC ORDER BY ID
+		]]>
+	</select>
+	
 	<select id="queryTestC" parameterType="int" resultMap="TestCResultMap">
 		<![CDATA[
 			SELECT * FROM TestC where STATUS = '1' and rownum <= #{pageSize}

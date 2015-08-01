@@ -26,7 +26,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.util.Assert;
 
-import com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchDetail;
+import com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchDetailPropertyEditor.JobLaunchDetail;
 import com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchPolicy;
 
 /**
