@@ -45,13 +45,5 @@
 			)
 		]]>
 	</select>
-	
-	<select id="checkYesterdayDayEnd" resultType="string">
-		<![CDATA[
-			 select max(DATE_CODE) DATE_CODE
-             from TCOR_DAY_DAYLIST
-             where DATE_CODE < #{accDate} order by DATE_CODE
-		]]>
-	</select>
 
 </mapper>

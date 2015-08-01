@@ -30,11 +30,4 @@ public interface LogicFlowCtrlDao {
 	 */
 	String getLastDayendStepStatus(@Param("accDate") String accDate, @Param("stepName") String stepName);
 	
-	
-	/**
-	 * @Description 判断昨日日终状态
-	 * @param accDate
-	 * @return
-	 */
-	String checkYesterdayDayEnd(@Param("accDate") String accDate);
 }

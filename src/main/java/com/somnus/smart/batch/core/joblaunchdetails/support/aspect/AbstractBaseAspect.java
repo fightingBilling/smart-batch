@@ -34,7 +34,6 @@ public abstract class AbstractBaseAspect{
 		return clazz.cast(objProceedingJoinPoint.getThis());
 	}
 	
-	
 	/**
 	 * @Description 获取步骤执行上下文
 	 * @param objProceedingJoinPoint
@@ -71,4 +70,5 @@ public abstract class AbstractBaseAspect{
 	
 	@Value("${batch.forceexec.stepnames}")
 	protected String forceExecStepnames;
+	
 }

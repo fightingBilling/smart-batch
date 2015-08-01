@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Aspect
 public class ItemReaderAspect extends AbstractBaseAspect{
+	
 	@Around("execution(* org.springframework.batch.item.ItemReader.read(..))")
 	public Object around(final ProceedingJoinPoint objProceedingJoinPoint) throws Throwable{
 		log.debug(">>>>> Enter into itemReader aspect");
@@ -36,4 +37,5 @@ public class ItemReaderAspect extends AbstractBaseAspect{
 		log.info(">>>>>> Current step [{}] using account date [{}] has not been completed, continue executing.", new Object[]{stepName, accDate});
 		return objProceedingJoinPoint.proceed();
 	}
+	
 }
