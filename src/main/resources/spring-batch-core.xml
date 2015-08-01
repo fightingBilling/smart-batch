@@ -107,7 +107,7 @@
 		class="org.springframework.beans.factory.config.CustomEditorConfigurer" >
 		<property name="customEditors" >
 			<map>
-				<entry key="com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchDetail">
+				<entry key="com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchDetailPropertyEditor.JobLaunchDetail">
 					<bean class="com.somnus.smart.batch.core.joblaunchdetails.support.JobLaunchDetailPropertyEditor" />
 				</entry>
 			</map>
