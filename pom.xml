@@ -7,8 +7,8 @@
   <description>基于账务核心系统的批量（作业）</description>
   
   <properties>
-        <ips.rest.core.version>1.1.13</ips.rest.core.version>
-        <ips.ips-security.version>1.0.11</ips.ips-security.version>
+        <!-- rest -->
+        <rest.core.version>3.2.0</rest.core.version>
         <!-- SPRING -->
         <spring.base.version>3.1.3.RELEASE</spring.base.version>
         <spring.asm.version>3.1.3.RELEASE</spring.asm.version>
@@ -77,7 +77,7 @@
         <repo.distribution.snapshot.url>http://192.168.12.216:2081/nexus/content/repositories/bacs-snapshots/</repo.distribution.snapshot.url>
 
         <!-- SCM -->
-        <scm.trunk>scm:svn:http://192.168.12.168/DevCode/002账务核心系统/日终批处理(BATCH)/代码/trunk/bacs-batch</scm.trunk>
+        <scm.trunk>scm:svn:http://192.168.12.168/DevCode/002账务核心系统/日终批处理(BATCH)/代码/trunk/smart-batch</scm.trunk>
         <scm.tags>http://192.168.12.168/DevCode/002账务核心系统/日终批处理(BATCH)/代码/tags/</scm.tags>
         <scm.branches>http://192.168.12.168/DevCode/002账务核心系统/日终批处理(BATCH)/代码/branches/</scm.branches>
     </properties>
@@ -441,19 +441,9 @@
             <version>${mvel.version}</version>
         </dependency>
         <dependency>
-          <groupId>com.ips</groupId>
-          <artifactId>bmps-service-api</artifactId>
-          <version>0.0.2</version>
-        </dependency>
-        <dependency>
-            <groupId>com.ips.rest.core</groupId>
+            <groupId>com.somnus.rest.core</groupId>
             <artifactId>rest-core</artifactId>
-            <version>${ips.rest.core.version}</version>
-        </dependency>
-         <dependency>
-            <groupId>com.ips</groupId>
-            <artifactId>ips-security</artifactId>
-            <version>${ips.ips-security.version}</version>
+            <version>${rest.core.version}</version>
         </dependency>
         
          <dependency>
@@ -470,9 +460,8 @@
          -->
     </dependencies>
 
-
     <build>
-        <finalName>bacs-batch</finalName>
+        <finalName>smart-batch</finalName>
     
         <!-- 插件配置 -->
         <plugins>
@@ -533,7 +522,7 @@
                         </goals>
                         <configuration>
                             <!-- 输出lib目录 -->
-                            <outputDirectory>${project.build.directory}/bacs-batch-final/lib</outputDirectory>
+                            <outputDirectory>${project.build.directory}/smart-batch-final/lib</outputDirectory>
                             <overWriteReleases>false</overWriteReleases>
                             <overWriteSnapshots>false</overWriteSnapshots>
                             <overWriteIfNewer>true</overWriteIfNewer>
@@ -552,7 +541,7 @@
                     <archive>
                         <manifest>
                             <addClasspath>true</addClasspath>
-                            <mainClass>com.ips.bacs.batch.core.joblaunchdetails.SimpleJobLaunchMain</mainClass>
+                            <mainClass>com.somnus.smart.batch.core.joblaunchdetails.SimpleJobLaunchMain</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -570,19 +559,19 @@
                         </goals>
                         <configuration>
                             <tasks>
-                                <copy todir="target/bacs-batch-final/bacs-batch" overwrite="true">
+                                <copy todir="target/smart-batch-final/smart-batch" overwrite="true">
                                     <fileset dir="target/classes">
                                         <exclude name="generatorConfig.xml" />
                                         <exclude name="logback-test.xml" />
                                     </fileset>
                                 </copy>
-                                <copy todir="target/bacs-batch-final/shell" overwrite="true">
+                                <copy todir="target/smart-batch-final/shell" overwrite="true">
                                     <fileset dir="${basedir}/scripts/shell">
                                         <exclude name="batch-start.sh" />
                                         <exclude name="batch-stop.sh" />
                                     </fileset>
                                 </copy>
-                                <copy todir="target/bacs-batch-final" overwrite="true">
+                                <copy todir="target/smart-batch-final" overwrite="true">
                                     <fileset dir="${basedir}/scripts/shell">
                                         <include name="batch-start.sh" />
                                         <include name="batch-stop.sh" />
