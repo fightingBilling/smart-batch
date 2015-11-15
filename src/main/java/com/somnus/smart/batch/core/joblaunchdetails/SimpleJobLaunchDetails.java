@@ -200,7 +200,7 @@ public class SimpleJobLaunchDetails implements ApplicationContextAware, Initiali
 	 * @param jobDetail
 	 * @param jobLaunchPolicy
 	 * @return
-	 * @author caobin
+	 * @author Somnus
 	 */
 	private boolean jobIgnore(JobLaunchDetail jobDetail, JobLaunchPolicy jobLaunchPolicy){
 		return !jobDetail.isCritical() && jobLaunchPolicy.ignoreUncriticalJob();

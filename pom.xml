@@ -69,12 +69,12 @@
         <jdk.version>1.6</jdk.version>
 
         <!-- 仓库 -->
-        <repo.public.url>http://192.168.12.216:2081/nexus/content/groups/public/</repo.public.url>
-        <repo.public.plugin.url>http://192.168.12.216:2081/nexus/content/groups/public/</repo.public.plugin.url>
+        <repo.public.url>http://localhost:8081/nexus/content/groups/public/</repo.public.url>
+        <repo.public.plugin.url>http://localhost:8081/nexus/content/groups/public/</repo.public.plugin.url>
         <repo.distribution.release.id>bacs-releases</repo.distribution.release.id>
-        <repo.distribution.release.url>http://192.168.12.216:2081/nexus/content/repositories/bacs-releases/</repo.distribution.release.url>
+        <repo.distribution.release.url>http://localhost:8081/nexus/content/repositories/releases/</repo.distribution.release.url>
         <repo.distribution.snapshot.id>bacs-snapshots</repo.distribution.snapshot.id>
-        <repo.distribution.snapshot.url>http://192.168.12.216:2081/nexus/content/repositories/bacs-snapshots/</repo.distribution.snapshot.url>
+        <repo.distribution.snapshot.url>http://localhost:8081/nexus/content/repositories/snapshots/</repo.distribution.snapshot.url>
 
         <!-- SCM -->
         <scm.trunk>scm:svn:http://192.168.12.168/DevCode/002账务核心系统/日终批处理(BATCH)/代码/trunk/smart-batch</scm.trunk>

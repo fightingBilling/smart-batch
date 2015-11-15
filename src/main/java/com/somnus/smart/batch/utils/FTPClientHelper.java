@@ -122,7 +122,7 @@ public class FTPClientHelper{
 	 * @param remoteFilePath 远程文件全路径
 	 * @param remoteFileName
 	 * @return
-	 * @author caobin
+	 * @author Somnus
 	 */
 	public boolean upload(File localFile, String remoteFilePath, String remoteFileName){
 		try {
@@ -155,7 +155,7 @@ public class FTPClientHelper{
 	 * @param remoteFilePath 远程全路径
 	 * @param localFile 本地文件全路径
 	 * @return
-	 * @author caobin
+	 * @author Somnus
 	 */
 	public boolean download(String remoteFilePath, File localFile){
 		
@@ -179,7 +179,7 @@ public class FTPClientHelper{
 	
 	/**
 	 * @Description 登出FTP
-	 * @author caobin
+	 * @author Somnus
 	 */
 	public void logout(){
 		try {
