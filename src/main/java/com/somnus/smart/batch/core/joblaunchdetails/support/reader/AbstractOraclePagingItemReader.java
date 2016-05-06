@@ -2,8 +2,9 @@ package com.somnus.smart.batch.core.joblaunchdetails.support.reader;
 
 import java.util.List;
 
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.annotation.BeforeStep;
 import org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader;
@@ -27,7 +28,7 @@ public abstract class AbstractOraclePagingItemReader<T> extends
         this.stepExecution = stepExecution;
     }
 	
-	protected Log logger = LogFactory.getLog(getClass());
+    private transient Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	private volatile boolean initialized = false;
 

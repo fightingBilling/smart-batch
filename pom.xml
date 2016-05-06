@@ -381,19 +381,6 @@
           <version>1.0</version>
         </dependency>
         
-        <!-- <dependency>
-          <groupId>com.enterprisedt</groupId>
-          <artifactId>edtftpj</artifactId>
-          <version>2.1.0</version>
-        </dependency> -->
-        
-         <!-- <dependency>
-            <groupId>org.codehaus.janino</groupId>
-            <artifactId>janino</artifactId>
-            <version>2.7.5</version>
-        </dependency> -->
-    
-        
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
